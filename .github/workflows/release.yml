@@ -27,7 +27,7 @@ jobs:
       - name: Run tests
         run: go test ./...
       - name: Build for Windows
-        run: fyne-cross windows -arch=amd64 -output keep_smallest
+        run: fyne-cross windows -arch=amd64 -output keep_smallest.exe
       - name: Build for Linux
         run: fyne-cross linux -arch=amd64 -output keep_smallest
       - name: Release applications
@@ -36,4 +36,4 @@ jobs:
           tag: ${{ env.APP_VERSION }}
           name: ${{ env.APP_VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "fyne-cross/dist/windows-amd64/keep_smallest.zip, fyne-cross/dist/linux-amd64/keep_smallest.tar.gz"
+          artifacts: "fyne-cross/dist/windows-amd64/keep_smallest.exe.zip, fyne-cross/dist/linux-amd64/keep_smallest.tar.gz"
